@@ -31,6 +31,7 @@ CORS(
     origins=[
         "http://localhost:3000",
         "https://car-joy.vercel.app/"
+        "https://www.shipmyparcel.in/"
     ],
     supports_credentials=True
 )
