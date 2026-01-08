@@ -2,7 +2,6 @@ from flask import Flask
 from flask_restful import Api
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager
-
 from models.base import db
 
 # IMPORTANT: import models so SQLAlchemy registers them
@@ -30,6 +29,8 @@ CORS(
     app,
     origins=[
         "http://localhost:3000",
+        "http://localhost:5000",
+        "http://localhost:5173",
         "https://car-joy.vercel.app/"
         "https://www.shipmyparcel.in/"
     ],
@@ -61,8 +62,9 @@ api.add_resource(SubscriptionsResource, "/api/subscriptions")
 api.add_resource(NotificationsResource, "/api/notifications")
 api.add_resource(WarehouseResource, "/api/warehouses")
 
-# CREATE TABLES
+# Initialize database
 with app.app_context():
+    print("📦 Initializing database...")
     db.create_all()
 
 if __name__ == "__main__":
