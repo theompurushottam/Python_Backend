@@ -52,7 +52,7 @@ jwt = JWTManager(app)
 api = Api(app)
 
 # ROUTES
-api.add_resource(RegisterUser, "/api/register")
+api.add_resource(RegisterUser, "api/register")
 api.add_resource(LoginUser, "/api/login")
 api.add_resource(Dashboard, "/api/dashboard")
 api.add_resource(OrdersResource, "/api/orders")
